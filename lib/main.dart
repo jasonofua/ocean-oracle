@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
@@ -13,9 +14,9 @@ import 'package:overlay_support/overlay_support.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
-  final geminiApiKey = 'AIzaSyC4alhoiwMeMgbVeHX8a9e_9mtVHxWjanU';
-  final model = GenerativeModel(model: 'gemini-pro', apiKey: geminiApiKey);
-  final gemini = GeminiClient(model: model);
+  /// flutter run --dart-define=apiKey='Your Api Key'
+  Gemini.init(
+      apiKey: 'AIzaSyBImhsT3fA0A9nCsxqRncMbtdqLHQPn2a8', enableDebugging: true);
   runApp(MyApp());
 }
 

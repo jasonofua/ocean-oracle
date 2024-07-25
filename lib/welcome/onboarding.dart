@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:ocean_oracle/ui/home.dart';
 import 'package:ocean_oracle/welcome/intro_screen_1.dart';
 import 'package:ocean_oracle/welcome/intro_screen_2.dart';
 import 'package:ocean_oracle/welcome/intro_screen_3.dart';
@@ -14,6 +18,7 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   PageController _pageController = PageController();
+  final userStorage = GetStorage();
 
   bool lastPage = false;
   @override
@@ -43,6 +48,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     SmoothPageIndicator(controller: _pageController, count: 3),
                     lastPage?GestureDetector(
                       onTap: (){
+                        userStorage.write("isFirstTime", false);
+                        Get.off(Home());
                         // _pageController.nextPage(duration: Duration(milliseconds: 500), curve: Curves.easeIn);
                       },
                         child: Text('Done')):GestureDetector(
