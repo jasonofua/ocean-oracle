@@ -72,6 +72,9 @@ Features: [Features]
             _showAnimalInfo();
           }
         }).catchError((error) {
+          setState(() {
+            isLoading = false;
+          });
           print("Error: $error");
         });
       });
