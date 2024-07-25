@@ -16,7 +16,7 @@ Future<void> main() async {
   await GetStorage.init();
   /// flutter run --dart-define=apiKey='Your Api Key'
   Gemini.init(
-      apiKey: 'AIzaSyBImhsT3fA0A9nCsxqRncMbtdqLHQPn2a8', enableDebugging: true);
+      apiKey: 'your api key', enableDebugging: true);
   runApp(MyApp());
 }
 
